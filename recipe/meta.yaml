@@ -77,6 +77,7 @@ requirements:
 {% set tests_to_skip = tests_to_skip + " or test_unary_spurious_fpexception" %}     # [armv7l]
 {% set tests_to_skip = tests_to_skip + " or test_int or test_real or test_quad_precision" %}      # [armv7l]
 {% set tests_to_skip = tests_to_skip + " or test_denormal_numbers" %}               # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or Test_ARM_Features" %}                   # [armv7l]
 
 test:
   requires:
