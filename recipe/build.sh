@@ -29,6 +29,7 @@ $PYTHON -m build -w -n -x \
     -Cbuilddir=builddir \
     -Csetup-args=-Dblas=blas \
     -Csetup-args=-Dlapack=lapack \
+    -Csetup-args=-Dcpu-dispatch="NEON NEON_FP16 NEON_VFPV4" \
     -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=} \
     || (cat builddir/meson-logs/meson-log.txt && exit 1)
 

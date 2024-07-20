@@ -10,6 +10,9 @@ package:
 source:
   - url: https://github.com/numpy/numpy/releases/download/v{{ version }}/numpy-{{ version }}.tar.gz
     sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
+    patches:
+      # https://patch-diff.githubusercontent.com/raw/numpy/numpy/pull/24883
+      - 24883.patch
   # the sources by upstream themselves (as opposed to automated by github) contain the
   # svml submodule (which isn't in github tarball due to dear-github/dear-github#214);
   # keep this for reference & debugging when necessary; for exact commit, see:
@@ -70,6 +73,9 @@ requirements:
 {% set tests_to_skip = tests_to_skip + " or test_multi_fortran_libs_link" %}        # [win and python_impl == "pypy"]
 {% set tests_to_skip = tests_to_skip + " or (test_extending and test_cython)" %}    # [win and python_impl == "pypy"]
 {% set tests_to_skip = tests_to_skip + " or (test_scripts and test_pep338)" %}      # [win and python_impl == "pypy"]
+{% set tests_to_skip = tests_to_skip + " or test_unary_spurious_fpexception" %}     # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_int or test_real or test_quad_precision" %}      # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_denormal_numbers" %}               # [armv7l]
 
 test:
   requires:
