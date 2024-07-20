@@ -32,6 +32,10 @@ liblapack:
 - 3.9 *netlib
 numpy:
 - '1.24'
+- '1.24'
+- '1.24'
+- '1.24'
+- '1.24'
 pin_run_as_build:
   python:
     min_pin: x.x
