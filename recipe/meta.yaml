@@ -37,7 +37,7 @@ requirements:
     - setuptools <60.0.0
     - python
     - pip
-    - cython
+    - cython <3
     - libblas
     - libcblas
     - liblapack
