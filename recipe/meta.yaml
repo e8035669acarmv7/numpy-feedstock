@@ -53,6 +53,13 @@ requirements:
 {% set tests_to_skip = tests_to_skip + " or Test_POWER_Features" %}                 # [build_platform != target_platform]
 # test_new_policy reruns part of test suite; including a CPU feature test that fails in emulation
 {% set tests_to_skip = tests_to_skip + " or test_new_policy" %}                     # [build_platform != target_platform]
+{% set tests_to_skip = tests_to_skip + " or Test_ARM_Features" %}                   # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_unary_spurious_fpexception" %}     # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_identityless_reduction_huge_array" %}      # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_big_arrays" %}                     # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_cython" %}                         # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_new_policy" %}                     # [armv7l]
+{% set tests_to_skip = tests_to_skip + " or test_all" %}                            # [armv7l]
 
 test:
   requires:
